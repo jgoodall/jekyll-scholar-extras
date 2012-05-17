@@ -3,7 +3,7 @@ jekyll-scholar-extras
 
 ```jekyll-scholar-extras``` provides customized generators and tags for generating a publication bibliography with individual details pages from a [BibTeX](http://www.bibtex.org) file. This resembles other [BibTeX](http://www.bibtex.org) to HTML converters such as [bibtex2web](http://www.cs.washington.edu/homes/mernst/software/#bibtex2web).
 
-These customizations are extension to [Jekyll](http://jekyllrb.com/) and [Jekyll-Scholar](https://github.com/inukshuk/jekyll-scholar).  
+These customizations are extensions to [Jekyll](http://jekyllrb.com/) and [Jekyll-Scholar](https://github.com/inukshuk/jekyll-scholar).  
 
 Installation
 ------------
