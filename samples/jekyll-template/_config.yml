@@ -1,0 +1,32 @@
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+
+auto:     false
+server:   false
+lsi:      false
+safe:     false
+pygments: true
+markdown: maruku
+
+baseurl: ./ #http://ece.uwaterloo.ca/~hdpatel/uwhtml
+root_home: ~hdpatel/uwhtml
+
+permalink: /:year/:month/:day/:title
+exclude:   ["Rakefile", "no-build"]
+title:     Hiren D. Patel
+url:       http://ece.uwaterloo.ca/~hdpatel/uwhtml
+
+# jekyll-scholar configurations
+scholar:
+  style: _publications/custom-hdp.csl
+  locale: en
+
+  sort_by: year
+  order: descending
+
+  source: ./_publications
+  bibliography: test.bib
+  details_dir: ./publications/details
+  details_layout: details.html
+  query: "@*[public!=no]"
