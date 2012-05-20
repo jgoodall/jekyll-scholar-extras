@@ -20,6 +20,14 @@ To enable ```jekyll-scholar-extras```, add a file in your plugin directory (e.g.
 
       require 'jekyll/scholar/extras'
 
+
+Features
+--------
+These extras provide some additional features over the vanilla Jekyll-Scholar.  These are described below:
+* Disable generation of BibTeX entries marked  to not be public.
+* Create a PDF download link based on the BibTeX key associated with each entry.
+
+
 Example
 -------
 
