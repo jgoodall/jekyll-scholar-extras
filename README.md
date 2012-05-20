@@ -9,7 +9,6 @@ Installation
 ------------
 
 ```bash
-$ [sudo] gem install jekyll-scholar
 $ [sudo] gem install jekyll-scholar-extras
 ```
 
