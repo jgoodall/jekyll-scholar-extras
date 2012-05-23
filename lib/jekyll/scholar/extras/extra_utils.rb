@@ -1,7 +1,7 @@
 module Jekyll
-  class Scholar
+  class ScholarExtras
 
-    module ExtraUtilities
+    module Utilities
 
     attr_reader :bibtex_file, :config, :site
 
@@ -17,9 +17,9 @@ module Jekyll
       @bibliography ||= BibTeX.open(bibtex_path, bibtex_options)
     end          
      
-    def entries_public
-      puts 'entries public only'
-      b = bibliography[config['query']]
+    def public_entries
+      b = bibliography['@*[public!=no]']
+#      b = bibliography[config['query']]
 
       unless config['sort_by'] == 'none'
         b.sort_by! { |e| e[config['sort_by']].to_s }

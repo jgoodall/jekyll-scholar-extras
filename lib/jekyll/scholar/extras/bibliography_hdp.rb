@@ -3,6 +3,7 @@ module Jekyll
 
     class BibliographyHDPTag < Liquid::Tag
       include Scholar::Utilities
+      include ScholarExtras::Utilities
   
       def initialize(tag_name, arguments, tokens)
         super
@@ -15,7 +16,7 @@ module Jekyll
         set_context_to context
 
          year_section = ''
-         references = entries.map do |entry|
+         references = public_entries.map do |entry|
           reference = ''
           ref = ''
 

@@ -29,4 +29,4 @@ scholar:
   bibliography: test.bib
   details_dir: ./publications/details
   details_layout: details.html
-  query: "@*[public!=no]"
+  #query: "@*[public!=no]"
