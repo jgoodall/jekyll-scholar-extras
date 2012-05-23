@@ -35,10 +35,19 @@ module Jekyll
         data['entry']['citeproc'] = CiteProc.process entry.to_citeproc, :style => config['style'],
             :locale => config['locale'], :format => 'html'
 
-        name = entry.key.to_s.dup
-        name.gsub!(/[:\s]+/, '_')
+        if entry.field?(:pdflink1)
+          data['entry']['pdflink1']= entry[:pdflink1].to_s
+        end
+          
+        if entry.field?(:pptlink1)
+          data['entry']['pptlink1']= entry[:pptlink1].to_s
+        end
 
-        data['entry']['pdflink'] = '../pdfs/' + name.to_s + '.pdf'
+
+#name = entry.key.to_s.dup
+#        name.gsub!(/[:\s]+/, '_')
+
+#        data['entry']['pdflink'] = '../pdfs/' + name.to_s + '.pdf'
 			end
 			
     end

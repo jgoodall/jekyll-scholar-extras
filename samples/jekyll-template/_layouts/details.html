@@ -11,7 +11,15 @@ no_sidebar: true
 {{ page.entry.abstract }} <br />
     </div>
 <br />
-<h3><a href="{{page.entry.pdflink}}">PDF</a> </h3>
+<b>Downloads:</b>
+{% if page.entry.pdflink1 == empty or page.entry.pdflink1 == nil %}
+{% else %}
+<a href="{{page.entry.pdflink1}}">PDF</a>
+{% endif %}
+{% if page.entry.pptlink1 == empty  or page.entry.pptlink1 == nil %}
+{% else %}
+, <a href="{{page.entry.pptlink1}}">PPT</a> 
+{% endif %}
 
 <br />
 <h3>BibTeX:</h3>

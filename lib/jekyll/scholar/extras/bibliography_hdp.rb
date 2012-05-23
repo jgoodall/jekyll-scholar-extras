@@ -36,6 +36,21 @@ module Jekyll
           if generate_details?
            reference << "<br />"
            reference << link_to(details_link_for(entry), config['details_link'])
+           reference << "."
+          end
+
+          if entry.field?(:pdflink1) or entry.field?(:pptlink1)
+            reference << "<b> Downloads: </b>" 
+          end 
+
+          if entry.field?(:pdflink1)
+            reference << "<a href=\"" + entry[:pdflink1].to_s + "\">PDF</a>"
+
+          end
+          
+          if entry.field?(:pptlink1)
+            reference << "<a href=\"" + entry[:pptlink1].to_s + "\">PPT</a>"
+
           end
 
           content_tag :br, reference
