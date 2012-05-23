@@ -20,10 +20,3 @@ Scenario: Wanting to *not* make a publication public.
      public = {no}
   }
   """
-
-  In your Scholar configuration (`_config.yml`) add the following query:
-  """
-  scholar: 
-    query: "@*[public!=no]"
-  """
-
