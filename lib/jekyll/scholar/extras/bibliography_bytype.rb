@@ -9,13 +9,14 @@ module Jekyll
         super
 
         @config = Scholar.defaults.dup
-        @bibtex_file = arguments.strip
+        @bibtex_type = arguments.strip
       end
 
       def render(context)
         set_context_to context
 
          year_section = ''
+         puts bibtex_type.to_s
          opts = ['@article','@*[public!=no]']
 #references = public_journal_entries.map do |entry|
         references = get_entries(opts).map do |entry|
