@@ -9,15 +9,17 @@ module Jekyll
         super
 
         @config = Scholar.defaults.dup
-        @bibtex_type = arguments.strip
+        @args = arguments.strip
+        puts @args.to_s
       end
 
       def render(context)
         set_context_to context
 
          year_section = ''
-         puts bibtex_type.to_s
-         opts = ['@article','@*[public!=no]']
+         opts = ['@' + @args,'@*[public!=no]']
+         puts opts.to_s
+
 #references = public_journal_entries.map do |entry|
         references = get_entries(opts).map do |entry|
           reference = ''
@@ -26,15 +28,6 @@ module Jekyll
           ref = CiteProc.process entry.to_citeproc, :style => config['style'],
             :locale => config['locale'], :format => 'html'
           content_tag :span, ref, :id => entry.key
-
-          if entry.field?(:year)
-            if (year_section != entry[:year])
-              reference << "<h1>"
-              reference << entry[:year].to_s
-              reference << "</h1>"
-              year_section = entry[:year]
-            end
-          end 
 
           reference << ref
           if generate_details?
@@ -59,12 +52,28 @@ module Jekyll
 
           content_tag :br, reference
         end
+         
+         header = "<h1>" 
+          case @args
+          when 'book'
+            header << "Books"
+          when 'article'
+            header << "Journals"
+          when 'inproceedings'
+            header << "Refereed Conferences"
+          when 'techreport'
+            header << "Technical Reports"
+          when 'incollection'
+            header << "In Book Chapters"
+          end
+          header << "</h1>"
 
+          puts header
+
+ 
+        references.insert(0,header)
         references.join("\n")
-#content_tag :ul, references.join("\n")
-#content_tag :li, reference
       end
-      
     end
     
   end
