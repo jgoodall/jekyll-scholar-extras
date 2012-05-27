@@ -98,7 +98,7 @@
         <number variable="number-of-volumes" form="numeric"/>
         <text term="volume" form="short" suffix="." plural="true" strip-periods="true"/>
       </group>
-      <group delimiter=" ">
+      <group delimiter=", ">
         <text term="issue" form="short" suffix="." strip-periods="true"/>
         <number variable="issue" form="numeric"/>
       </group>
@@ -240,7 +240,7 @@
             <text variable="genre"/>
             <text macro="publisher"/>
             <text macro="event" prefix="&lt;i&gt;" suffix="&lt;/i&gt;,"/>
-            <text macro="locators" prefix="Technical Report #" suffix=", "/>
+            <text variable="issue" prefix="Technical Report #" suffix=", " form="numeric"/>
             <text macro="issued"/>
           </group>
         </else-if>
