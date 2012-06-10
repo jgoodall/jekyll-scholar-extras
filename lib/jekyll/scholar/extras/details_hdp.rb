@@ -34,13 +34,15 @@ module Jekyll
         # This is to get the CSL style output.
         data['entry']['citeproc'] = CiteProc.process entry.to_citeproc, :style => config['style'],
             :locale => config['locale'], :format => 'html'
+            
+#puts data['entry']['citeproc'].class
 
         if entry.field?(:pdflink1)
           data['entry']['pdflink1']= entry[:pdflink1].to_s
         end
           
-        if entry.field?(:pptlink1)
-          data['entry']['pptlink1']= entry[:pptlink1].to_s
+        if entry.field?(:slides)
+          data['entry']['slides']= entry[:slides].to_s
         end
 
 
