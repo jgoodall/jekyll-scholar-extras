@@ -40,17 +40,17 @@ module Jekyll
            reference << "."
           end
 
-          if entry.field?(:slides) or entry.field?(:slides)
+          if entry.field?(:pdflink1) or entry.field?(:slides)
             reference << "<b> Downloads: </b>" 
           end 
 
           if entry.field?(:pdflink1)
-            reference << "<a href=\"" + entry[:pdflink1].to_s + "\">PDF</a>"
+            reference << "<a href=\""  + entry[:pdflink1].to_s + "\">PDF</a>"
 
           end
           
           if entry.field?(:slides)
-            reference << "<a href=\"" + entry[:slides].to_s + "\">Slides</a>"
+            reference << "<a href=\""  + entry[:slides].to_s + "\">Slides</a>"
 
           end
 
