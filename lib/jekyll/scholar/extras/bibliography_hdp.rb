@@ -50,7 +50,7 @@ module Jekyll
           end
           
           if entry.field?(:slides)
-            reference << "<a href=\""  + entry[:slides].to_s + "\">Slides</a>"
+            reference << "<a href=\""  + entry[:slides].to_s + "\">, Slides</a>"
 
           end
 
