@@ -80,16 +80,17 @@ module Jekyll
       config['details_dir']
     end
     
-    def cite(key)
+    def cite_details(key)
       entry = bibliography[key]
       
       if bibliography.key?(key)
-        citation = CiteProc.process entry.to_citeproc, :style => config['style'],
-        :locale => config['locale'], :format => 'html', :mode => :citation
+        link_to "More details.", details_link_for(entry)
+        #citation = CiteProc.process entry.to_citeproc, :style => config['style'],
+        #:locale => config['locale'], :format => 'html', :mode => :citation
         
-        link_to "##{entry.key}", citation.join
-        else
-        "(missing reference)"
+        #link_to "##{entry.key}", citation.join
+        #else
+        #"(missing reference)"
       end
     end
     
