@@ -24,4 +24,4 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_tag('cite_details', Jekyll::Scholar::CiteTagDetails)
+Liquid::Template.register_tag('cite_details_dep', Jekyll::Scholar::CiteTagDetails)
