@@ -10,6 +10,7 @@ module Jekyll
 
         @config = Scholar.defaults.dup
         @args = arguments.strip
+        puts "args:"
         puts @args.to_s
       end
 
@@ -18,7 +19,7 @@ module Jekyll
 
          year_section = ''
          opts = ['@' + @args,'@*[public!=no]']
-         puts opts.to_s
+#         puts opts.to_s
 
 #references = public_journal_entries.map do |entry|
         references = get_entries(opts).map do |entry|
@@ -68,7 +69,7 @@ module Jekyll
           end
           header << "</h1>"
 
-          puts header
+#  puts header
 
  
         references.insert(0,header)
