@@ -5,23 +5,24 @@ module Jekyll
       include Scholar::Utilities
       include ScholarExtras::Utilities
   
+      attr_reader :type, :header, :arr_args
+
       def initialize(tag_name, arguments, tokens)
         super
 
         @config = Scholar.defaults.dup
-        @args = arguments.strip
-        puts "args:"
-        puts @args.to_s
+        # Check for number of arguments.
+        @arr_args = arguments.strip.split(/\s+/)
+        @type= arr_args[0]
+        @header = arr_args[1]
       end
 
       def render(context)
         set_context_to context
 
          year_section = ''
-         opts = ['@' + @args,'@*[public!=no]']
-#         puts opts.to_s
+         opts = ['@' + @type,'@*[public!=no]']
 
-#references = public_journal_entries.map do |entry|
         references = get_entries(opts).map do |entry|
           reference = ''
           ref = ''
@@ -54,25 +55,9 @@ module Jekyll
           content_tag :br, reference
         end
          
-         header = "<h1>" 
-          case @args
-          when 'book'
-            header << "Books"
-          when 'article'
-            header << "Journals"
-          when 'inproceedings'
-            header << "Refereed Conferences"
-          when 'techreport'
-            header << "Technical Reports"
-          when 'incollection'
-            header << "In Book Chapters"
-          end
-          header << "</h1>"
-
-#  puts header
-
+         section_header = "<h1> #{@header} </h1>"
  
-        references.insert(0,header)
+        references.insert(0,section_header)
         references.join("\n")
       end
     end
