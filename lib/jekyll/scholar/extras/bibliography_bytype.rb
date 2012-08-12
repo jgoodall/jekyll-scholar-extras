@@ -12,9 +12,11 @@ module Jekyll
 
         @config = Scholar.defaults.dup
         # Check for number of arguments.
-        @arr_args = arguments.strip.split(/\s+/)
-        @type= arr_args[0]
-        @header = arr_args[1]
+#@arr_args = arguments.strip.split(/\s+/)
+        @type, @header= arguments.strip.split(/\s*,\s*/, 2)
+
+#@type= arr_args[0]
+#@header = arr_args[1]
       end
 
       def render(context)
