@@ -22,7 +22,7 @@ module Jekyll
       and_list.each { |t|
         b = bibliography[t] & b
       }
-      puts b.length
+#puts b.length
       
       unless config['sort_by'] == 'none'
         b.sort_by! { |e| e[config['sort_by']].to_s }
@@ -36,10 +36,10 @@ module Jekyll
       bart = bibliography['@article']
       bpub = bibliography['@*[public!=no]']
       b = bart & bpub 
-      puts b.class
-      puts bart.length 
-      puts bpub.length
-      puts b.length
+#puts b.class
+#puts bart.length 
+#puts bpub.length
+#puts b.length
       
       unless config['sort_by'] == 'none'
         b.sort_by! { |e| e[config['sort_by']].to_s }

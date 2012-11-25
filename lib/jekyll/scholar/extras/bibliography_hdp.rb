@@ -16,7 +16,10 @@ module Jekyll
         set_context_to context
 
          year_section = ''
-         references = public_entries.map do |entry|
+         opts = ['@*[public!=no]']
+
+#references = public_entries.map do |entry|
+         references = get_entries(opts).map do |entry|
           reference = ''
           ref = ''
 
@@ -45,13 +48,22 @@ module Jekyll
           end 
 
           if entry.field?(:pdflink1)
-            reference << "<a href=\""  + entry[:pdflink1].to_s + "\">PDF</a>"
+#if config['pdf_logo'] 
+#              puts "pdf_logo"
+#              reference << "<img class=\"alignleft\" title=\"pdf\" src=" + config['pdf_logo'] +  "alt=\"\" width=\"50\" height=\"30\" />"
+#            else
+              reference << "<a href=\""  + entry[:pdflink1].to_s + "\">PDF</a>"
+#            end
 
           end
           
           if entry.field?(:slides)
-            reference << "<a href=\""  + entry[:slides].to_s + "\">, Slides</a>"
-
+#            if config['ppt_logo'] 
+#              puts "ppt_logo"
+#              reference << "<img class=\"alignleft\" title=\"ppt\" src=" + config['ppt_logo'] +  "alt=\"\" width=\"50\" height=\"30\" />"
+#            else
+              reference << "<a href=\""  + entry[:slides].to_s + "\">, Slides</a>"
+#            end
           end
 
           content_tag :br, reference
