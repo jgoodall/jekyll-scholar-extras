@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = s.name
 
   s.add_runtime_dependency('jekyll', '>= 0.11.2')
-  s.add_runtime_dependency('jekyll-scholar', '~> 0.3.1')
+  s.add_runtime_dependency('jekyll-scholar', '>= 0.3.1')
   s.add_runtime_dependency('citeproc-ruby', '~> 0.0.6')
   s.add_runtime_dependency('bibtex-ruby', '~> 2.2')
 
