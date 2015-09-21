@@ -31,7 +31,7 @@ Example
 -------
 
 An example setup that uses the customized bibliography and details page generators and tags.
-* [Sample 1](https://ece.uwaterloo.ca/~hdpatel/uwhtml/publications/index.html)
+* [Sample 1](https://caesr.uwaterloo.ca//publications/index.html)
 
 
 License
